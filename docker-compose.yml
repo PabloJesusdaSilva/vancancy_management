@@ -1,0 +1,10 @@
+services: 
+  postgres:
+    container_name: vacancy_management_postgres
+    image: postgres
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=2704
+      - POSTGRES_DB=vacancy_management
