@@ -1,4 +1,4 @@
-package br.com.pablojesus.vacancy_management.modules.candidate.useCases;
+package br.com.pablojesus.vacancy_management.modules.candidate.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -12,4 +12,5 @@ import lombok.NoArgsConstructor;
 public class AuthCandidateResponseDTO {
     
     private String access_token;
+    private Long expires_in;
 }
