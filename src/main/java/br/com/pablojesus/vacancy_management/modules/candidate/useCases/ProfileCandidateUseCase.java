@@ -7,7 +7,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import br.com.pablojesus.vacancy_management.modules.candidate.CandidateRepository;
-import br.com.pablojesus.vacancy_management.modules.candidate.dto.ProfileCandidateResponseDTO;
+import br.com.pablojesus.vacancy_management.modules.candidate.dto.ProfilesCandidateResponseDTO;
 
 @Service
 public class ProfileCandidateUseCase {
@@ -15,16 +15,15 @@ public class ProfileCandidateUseCase {
     @Autowired
     private CandidateRepository candidateRepository;
 
-    @Autowired
-    private ProfileCandidateResponseDTO candidateResponseDTO;
+    private ProfilesCandidateResponseDTO candidateResponseDTO;
 
-    public ProfileCandidateResponseDTO execute(UUID idCandidate) {
+    public ProfilesCandidateResponseDTO execute(UUID idCandidate) {
         var candidate = this.candidateRepository.findById(idCandidate)
                 .orElseThrow(() -> {
                     throw new UsernameNotFoundException("User not found");
                 });
 
-        var candidateDTO = ProfileCandidateResponseDTO.builder()
+        var candidateDTO = candidateResponseDTO.builder()
             .description(candidate.getDescription())
             .email(candidate.getEmail())
             .name(candidate.getName())
