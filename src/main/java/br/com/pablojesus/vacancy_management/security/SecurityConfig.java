@@ -21,6 +21,7 @@ public class SecurityConfig {
     private SecurityCandidateFilter securityCandidateFilter;
  
     public static final String[] SWAGGER_LIST = {
+        "/swagger-ui.html",
         "/swagger-ui/**",
         "/v3/api-docs/**",
         "/swagger-resources/**"
