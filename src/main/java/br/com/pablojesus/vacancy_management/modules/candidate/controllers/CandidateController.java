@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.pablojesus.vacancy_management.modules.candidate.dto.ProfilesCandidateResponseDTO;
 import br.com.pablojesus.vacancy_management.modules.candidate.entities.CandidateEntity;
 import br.com.pablojesus.vacancy_management.modules.candidate.useCases.CreateCandidateUseCase;
 import br.com.pablojesus.vacancy_management.modules.candidate.useCases.ListAllJobsByFilterUseCase;
@@ -54,6 +55,14 @@ public class CandidateController {
 
     @GetMapping("/")
     @PreAuthorize("hasRole('CANDIDATE')")
+    @Operation(summary = "Perfil do candidato", 
+        description = "Essa função é responsável por buscar as informações do perfil do candidato.")
+    @ApiResponses({
+        @ApiResponse(responseCode = "200", content = {
+            @Content(schema = @Schema(implementation = ProfilesCandidateResponseDTO.class))
+        }),
+        @ApiResponse(responseCode = "400", description = "User not found")
+    })
     public ResponseEntity<Object> get(HttpServletRequest request) {
         var idCandidate = request.getAttribute("candidate_id");
 
@@ -68,7 +77,8 @@ public class CandidateController {
     @GetMapping("/job")
     @PreAuthorize("hasRole('CANDIDATE')")
     @Tag(name = "Candidato", description = "Informações do candidato")
-    @Operation(summary = "Listagem de vagas disponíveis para o candidato", description = "Essa função é responsável por listar todas as vagas disponíveis, baseada no filtro.")
+    @Operation(summary = "Listagem de vagas disponíveis para o candidato", 
+        description = "Essa função é responsável por listar todas as vagas disponíveis, baseada no filtro.")
     @ApiResponses({
         @ApiResponse(responseCode = "200", content = {
             @Content(array = @ArraySchema(schema = @Schema(implementation = JobEntity.class)))
