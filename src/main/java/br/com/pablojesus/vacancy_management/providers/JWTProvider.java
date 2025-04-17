@@ -1,6 +1,5 @@
 package br.com.pablojesus.vacancy_management.providers;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -27,9 +26,14 @@ public class JWTProvider {
             var tokenDecoded = JWT.require(algorithm)
                     .build()
                     .verify(token);
+           
             return tokenDecoded;
         } catch (JWTVerificationException ex) {
             ex.printStackTrace();
+            System.out.println("🔐 Chave usada para validação: " + secretKey);
+            System.out.println("📦 Token recebido: " + token);
+            System.out.println("🔑 [" + secretKey + "] (length=" + secretKey.length() + ")");
+
             return null;
         }
     }
