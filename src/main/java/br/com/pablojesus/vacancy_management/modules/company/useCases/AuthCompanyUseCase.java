@@ -33,12 +33,12 @@ public class AuthCompanyUseCase {
     private PasswordEncoder passwordEncoder;
 
     public AuthCompanyResponseDTO execute(AuthCompanyDTO authCompanyDTO) throws AuthenticationException {
-        var company = repository.findByUsername(authCompanyDTO.getUsername()).orElseThrow(
+        var company = this.repository.findByUsername(authCompanyDTO.getUsername()).orElseThrow(
                 () -> {
                     throw new UsernameNotFoundException("Username/Password incorrect");
                 });
 
-        var passwordMathes = passwordEncoder.matches(authCompanyDTO.getPassword(), company.getPassword());
+        var passwordMathes = this.passwordEncoder.matches(authCompanyDTO.getPassword(), company.getPassword());
 
         if (!passwordMathes) {
             throw new AuthenticationException();

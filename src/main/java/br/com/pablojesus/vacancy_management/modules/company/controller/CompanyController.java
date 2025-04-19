@@ -4,13 +4,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.pablojesus.vacancy_management.modules.company.entities.CompanyEntity;
 import br.com.pablojesus.vacancy_management.modules.company.useCases.CreateCompanyUseCase;
 import jakarta.validation.Valid;
 
-@RestController("/company")
+@RestController
+@RequestMapping("/company")
 public class CompanyController {
 
     @Autowired

@@ -37,8 +37,7 @@ public class SecurityConfig {
                     .requestMatchers("/company/").permitAll()
                     .requestMatchers("/company/auth").permitAll()
                     .requestMatchers("/candidate/auth").permitAll()
-                    .requestMatchers(SWAGGER_LIST).permitAll();
-                    
+                    .requestMatchers(SWAGGER_LIST).permitAll(); 
                 auth.anyRequest().authenticated();
             })
             .addFilterBefore(securityCandidateFilter, BasicAuthenticationFilter.class)
