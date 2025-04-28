@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.pablojesus.vacancy_management.modules.candidate.dto.ProfilesCandidateResponseDTO;
-import br.com.pablojesus.vacancy_management.modules.candidate.entities.CandidateEntity;
+import br.com.pablojesus.vacancy_management.modules.candidate.entity.CandidateEntity;
 import br.com.pablojesus.vacancy_management.modules.candidate.useCases.CreateCandidateUseCase;
 import br.com.pablojesus.vacancy_management.modules.candidate.useCases.ListAllJobsByFilterUseCase;
 import br.com.pablojesus.vacancy_management.modules.candidate.useCases.ProfileCandidateUseCase;

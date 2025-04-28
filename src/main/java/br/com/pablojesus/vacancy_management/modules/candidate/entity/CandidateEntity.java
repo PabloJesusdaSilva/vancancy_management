@@ -1,4 +1,4 @@
-package br.com.pablojesus.vacancy_management.modules.candidate.entities;
+package br.com.pablojesus.vacancy_management.modules.candidate.entity;
 
 import java.net.Authenticator.RequestorType;
 import java.time.LocalDateTime;

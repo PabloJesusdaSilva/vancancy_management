@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import br.com.pablojesus.vacancy_management.exceptions.JobNotFoundException;
 import br.com.pablojesus.vacancy_management.exceptions.UserNotFoundException;
-import br.com.pablojesus.vacancy_management.modules.candidate.CandidateRepository;
+import br.com.pablojesus.vacancy_management.modules.candidate.repository.CandidateRepository;
 import br.com.pablojesus.vacancy_management.modules.company.repositories.JobRepository;
 
 @Service

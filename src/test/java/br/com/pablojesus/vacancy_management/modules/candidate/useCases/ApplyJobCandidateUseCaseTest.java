@@ -16,8 +16,8 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import br.com.pablojesus.vacancy_management.exceptions.JobNotFoundException;
 import br.com.pablojesus.vacancy_management.exceptions.UserNotFoundException;
-import br.com.pablojesus.vacancy_management.modules.candidate.CandidateRepository;
-import br.com.pablojesus.vacancy_management.modules.candidate.entities.CandidateEntity;
+import br.com.pablojesus.vacancy_management.modules.candidate.entity.CandidateEntity;
+import br.com.pablojesus.vacancy_management.modules.candidate.repository.CandidateRepository;
 import br.com.pablojesus.vacancy_management.modules.company.repositories.JobRepository;
 
 @ExtendWith(MockitoExtension.class)
